@@ -1,13 +1,3 @@
-var gun = Gun({
-   web: config.server.listen(config.port),
-   peers: config.peers,
-   s3: {
-      key:'AKIAV63CB2RVYKHCN63A', // AWS Access Key
-      secret: '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', // AWS Secret Token
-      bucket: 'pebble-demo'// The bucket you want to save into
-   }
-});
-
 ;(function(){
 	var cluster = require('cluster');
 	if(cluster.isMaster){
@@ -29,7 +19,15 @@ var gun = Gun({
 		config.server = require('http').createServer(Gun.serve(__dirname));
 	}
 
-	var gun = Gun({web: config.server.listen(config.port), peers: config.peers});
+	var gun = Gun({
+   web: config.server.listen(config.port),
+   peers: config.peers,
+   s3: {
+      key:'AKIAV63CB2RVYKHCN63A', // AWS Access Key
+      secret: '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', // AWS Secret Token
+      bucket: 'pebble-demo'// The bucket you want to save into
+   }
+});
 
 	console.log('Relay peer started on port ' + config.port + ' with /gun');
 
