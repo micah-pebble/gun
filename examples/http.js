@@ -2,9 +2,9 @@ var gun = Gun({
    web: config.server.listen(config.port),
    peers: config.peers,
    s3: {
-      key: process.env.AWS_ACCESS_KEY_ID, // AWS Access Key
-      secret: process.env.AWS_SECRET_ACCESS_KEY, // AWS Secret Token
-      bucket: process.env.AWS_S3_BUCKET // The bucket you want to save into
+      key:'AKIAV63CB2RVYKHCN63A', // AWS Access Key
+      secret: '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', // AWS Secret Token
+      bucket: 'pebble-demo'// The bucket you want to save into
    }
 });
 
